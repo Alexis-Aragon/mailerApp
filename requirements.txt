@@ -13,3 +13,4 @@ sib-api-v3-sdk==7.6.0
 six==1.16.0
 urllib3==2.0.4
 Werkzeug==2.3.6
+Gunicorn
