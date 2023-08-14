@@ -25,3 +25,6 @@ def create_app():
     app.register_blueprint(mail.bp)
     
     return app
+
+    if __name__ == '__main__':
+        app.run()
