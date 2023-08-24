@@ -15,7 +15,7 @@ def create_app():
         DATABASE_USER=os.environ.get('FLASK_DATABASE_USER'),
         DATABASE=os.environ.get('FLASK_DATABASE'),
     )
-
+    
     from . import db
     
     db.init_app(app)
@@ -26,5 +26,3 @@ def create_app():
     
     return app
 
-    if __name__ == '__main__':
-        app.run()

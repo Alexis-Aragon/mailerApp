@@ -1,11 +1,12 @@
 import mysql.connector
-
+from dotenv import load_dotenv
 import click
 
 from flask import current_app, g
 from flask.cli import with_appcontext
 from .schema import instructions
 
+load_dotenv()
 #obtener base de datos y cursor
 def get_db():
     if 'db' not in g:
@@ -14,9 +15,10 @@ def get_db():
             user=current_app.config['DATABASE_USER'],
             password=current_app.config['DATABASE_PASSWORD'],
             database=current_app.config['DATABASE'],
-            # ssl_mode = "VERIFY_IDENTITY",
-            # ssl = {"ca": "/etc/ssl/cert.pem"}
+            ssl_verify_identity=True,
+            ssl_ca="/etc/ssl/certs/ca-certificates.crt"
         )
+        print("Connected to the database")
         g.c = g.db.cursor(dictionary=True)
     return g.db, g.c
 
