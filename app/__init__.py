@@ -26,3 +26,5 @@ def create_app():
     
     return app
 
+my_app = create_app()
+
